@@ -1,42 +1,88 @@
-# ReconVault
+# ReconVault 🔍
 
-ReconVault is a clean, terminal-aesthetic desktop application for Linux designed for security researchers, bug bounty hunters, and CTF players. It provides a centralized platform to organize all recon findings per target, including subdomains, IPs, ports, endpoints, notes, and vulnerabilities, eliminating the need for scattered spreadsheets or text files.
+> The recon notes organizer bug bounty hunters actually asked for.
 
-## Installation and Run Instructions
+ReconVault is a dark-themed, terminal-aesthetic desktop app for Linux 
+built for security researchers, bug bounty hunters, and CTF players. 
+Ditch the scattered text files and spreadsheets — organize every 
+target's subdomains, ports, endpoints, vulnerabilities, and notes 
+in one place. 100% local. No cloud. No account. No internet required.
 
-1.  **Prerequisites:** Ensure you have Python 3.10+ installed on your Linux system.
+---
 
-2.  **Install PyQt6:** Open your terminal and install the required GUI library:
-    ```bash
-    pip install PyQt6
-    ```
+## ⚡ Quick Start
 
-3.  **Download ReconVault:** Download the `reconvault.py` file and `requirements.txt` from the provided archive.
+### Prerequisites
+- Linux (Kali, Ubuntu, Debian-based)
+- Python 3.10+
 
-4.  **Run the Application:** Navigate to the directory where you saved `reconvault.py` in your terminal and execute:
-    ```bash
-    python3 reconvault.py
-    ```
+### Install & Run
 
-    The application will automatically create a `.reconvault` directory and `reconvault.db` database in your home directory (`~/.reconvault/reconvault.db`) on its first run.
+```bash
+# Clone the repo
+git clone https://github.com/parbatzone/reconvault.git
+cd reconvault
 
-## Feature Overview
+# Install dependencies
+pip install -r requirements.txt
 
-*   **Target Management:** Create, list, search, filter, and delete targets. Each target includes name, domain, platform, and dates.
-*   **Target Workspace:** Dedicated tabs for each target to organize:
-    *   **Subdomains:** Table for subdomains, IPs, status, tech stack, and notes. Supports inline editing and import from text files.
-    *   **Ports & Services:** Table for IPs, ports, protocols, services, versions, and notes. Supports inline editing and import from Nmap output.
-    *   **Endpoints:** Table for URLs, methods, parameters, status codes, and notes. Supports inline editing.
-    *   **Vulnerabilities:** Table for title, severity (with colored badges), status, CVE/CWE, and description. Supports inline editing.
-    *   **Notes:** A large plain text editor for freeform notes with auto-save functionality.
-*   **Dashboard:** Home screen displaying total targets, total vulnerabilities by severity, and recent activity.
-*   **Export:** Export any target's full data as a Markdown report.
-*   **Global Search:** Search across all targets and all tabs simultaneously.
+# Run
+python3 reconvault.py
+```
 
-## Screenshots
+On first run, ReconVault automatically creates a local SQLite database 
+at `~/.reconvault/reconvault.db`. Your data never leaves your machine.
 
-*(Screenshots will be added here)*
+---
 
-## License
+## 🗂️ Features
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+**Target Management**
+Create, search, and manage targets — each with name, domain, 
+platform (HackerOne, Bugcrowd, CTF, etc.), and timestamps.
+
+**Per-Target Workspace (5 tabs)**
+
+| Tab | What You Track |
+|-----|---------------|
+| Subdomains | Domain · IP · Live/Dead status · Tech stack · Notes |
+| Ports & Services | IP · Port · Protocol · Service · Version · Notes |
+| Endpoints | URL · Method · Parameters · Status code · Notes |
+| Vulnerabilities | Title · Severity · Status · CVE/CWE · Description |
+| Notes | Freeform notes editor — auto-saves as you type |
+
+**Vulnerability Severity Badges**
+
+![Critical](https://img.shields.io/badge/Critical-red)
+![High](https://img.shields.io/badge/High-orange)
+![Medium](https://img.shields.io/badge/Medium-yellow)
+![Low](https://img.shields.io/badge/Low-blue)
+![Info](https://img.shields.io/badge/Info-grey)
+
+**Dashboard**
+Home screen showing total targets, vulnerability breakdown by 
+severity, and recently modified targets.
+
+**Nmap Import**
+Import port scan results directly from Nmap `-oN` text output 
+into the Ports & Services tab.
+
+**Markdown Export**
+Export any target's full findings as a clean Markdown report — 
+saved to `~/Desktop/reconvault_[target]_[date].md`.
+
+**Global Search**
+Search across all targets and all tabs simultaneously from 
+a single search bar.
+
+---
+
+## 🖥️ Screenshots
+
+> Coming soon
+
+---
+
+## 🗃️ Data Storage
+
+All data is stored locally in a SQLite database:
