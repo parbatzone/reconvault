@@ -7,7 +7,7 @@ please report it responsibly.
 
 **Do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, email: gamerzonef44@gmail.com
+Instead, email: limoxlost@gmail.com
 
 I will respond within 48 hours and work to fix it as soon as possible.
 
